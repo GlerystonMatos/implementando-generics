@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{2ADBCA3A-E01E-4DAA-9902-340B5E8758AB}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ImplementandoGenerics.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ImplementandoGenerics">
+        <MSBuild Projects="ImplementandoGenerics.dproj"/>
+    </Target>
+    <Target Name="ImplementandoGenerics:Clean">
+        <MSBuild Projects="ImplementandoGenerics.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ImplementandoGenerics:Make">
+        <MSBuild Projects="ImplementandoGenerics.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ImplementandoGenerics"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ImplementandoGenerics:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ImplementandoGenerics:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
